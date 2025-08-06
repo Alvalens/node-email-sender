@@ -47,7 +47,11 @@ node send-survey.js 501-1000
 
 ### Test Email
 
-To send a test email, you can modify the `send-survey.js` script to send to a specific address.
+To send a single test email to `alvalen.shafel04@gmail.com`, run:
+
+```bash
+node send-survey.js test
+```
 
 ### Preview
 

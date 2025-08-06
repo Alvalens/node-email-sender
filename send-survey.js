@@ -34,20 +34,27 @@ const sendEmail = (to, name) => {
   });
 };
 
-const [start, end] = (process.argv[2] || '').split('-').map(Number);
+const arg = process.argv[2];
 
-const emails = [];
-fs.createReadStream('data/email-new.csv')
-  .pipe(csv())
-  .on('data', (row) => {
-    emails.push(row);
-  })
-  .on('end', () => {
-    const toSend = (start && end) ? emails.slice(start - 1, end) : emails;
-    
-    toSend.forEach(row => {
-      sendEmail(row.email, row.name);
+if (arg === 'test') {
+  console.log('Sending test email...');
+  sendEmail('alvalen.shafel04@gmail.com', 'Alvalen');
+} else {
+  const [start, end] = (arg || '').split('-').map(Number);
+
+  const emails = [];
+  fs.createReadStream('data/email-new.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      emails.push(row);
+    })
+    .on('end', () => {
+      const toSend = (start && end) ? emails.slice(start - 1, end) : emails;
+      
+      toSend.forEach(row => {
+        sendEmail(row.email, row.name);
+      });
+
+      console.log('CSV file successfully processed.');
     });
-
-    console.log('CSV file successfully processed.');
-  });
+}

@@ -2,7 +2,8 @@ const fs = require('fs');
 
 console.log('Generating email preview...');
 
-const emailHtml = fs.readFileSync('email-template.html', 'utf8');
+const emailTemplate = fs.readFileSync('email-template.html', 'utf8');
+const emailHtml = emailTemplate.replace('{{name}}', 'John Doe');
 fs.writeFileSync('preview.html', emailHtml);
 
 console.log('Preview generated: preview.html');

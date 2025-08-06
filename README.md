@@ -29,14 +29,33 @@ This script sends a survey email to a list of recipients from a CSV file.
 
 ## Usage
 
-To run the script, use the following command:
+To run the script, use the `npm start` command.
+
+### Batch Sending
+
+You can send emails in batches by providing a range as a command-line argument. For example, to send to the first 500 emails in your CSV:
 
 ```bash
-npm start
+node send-survey.js 1-500
 ```
 
-or
+To send the next batch:
 
 ```bash
-node send-survey.js
+node send-survey.js 501-1000
 ```
+
+### Test Email
+
+To send a test email, you can modify the `send-survey.js` script to send to a specific address.
+
+### Preview
+
+To preview the email template, run:
+
+```bash
+npm run preview
+```
+
+This will generate a `preview.html` file that you can open in your browser.
+

@@ -15,9 +15,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const emailHtml = fs.readFileSync('email-template.html', 'utf8');
+const emailTemplate = fs.readFileSync('email-template.html', 'utf8');
 
-const sendEmail = (to) => {
+const sendEmail = (to, name) => {
+  const emailHtml = emailTemplate.replace('{{name}}', name);
   const mailOptions = {
     from: process.env.SMTP_FROM,
     to: to,
@@ -33,18 +34,20 @@ const sendEmail = (to) => {
   });
 };
 
-const arg = process.argv[2];
+const [start, end] = (process.argv[2] || '').split('-').map(Number);
 
-if (arg === 'test') {
-  console.log('Sending test email...');
-  sendEmail('alvalen.shafel04@gmail.com');
-} else {
-  fs.createReadStream('data/email.csv')
-    .pipe(csv())
-    .on('data', (row) => {
-      sendEmail(row.email);
-    })
-    .on('end', () => {
-      console.log('CSV file successfully processed.');
+const emails = [];
+fs.createReadStream('data/email-new.csv')
+  .pipe(csv())
+  .on('data', (row) => {
+    emails.push(row);
+  })
+  .on('end', () => {
+    const toSend = (start && end) ? emails.slice(start - 1, end) : emails;
+    
+    toSend.forEach(row => {
+      sendEmail(row.email, row.name);
     });
-}
+
+    console.log('CSV file successfully processed.');
+  });

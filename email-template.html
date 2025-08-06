@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
       padding: 0;
       background-color: #f4f4f4;
     }
+
     .container {
       max-width: 600px;
       margin: 0 auto;
@@ -18,21 +20,25 @@
       padding: 20px;
       border-radius: 8px;
     }
+
     .header {
       text-align: center;
       padding: 20px 0;
     }
+
     .header h1 {
       margin: 0;
       font-size: 24px;
       color: #333333;
     }
+
     .content {
       padding: 20px;
       text-align: left;
       color: #555555;
       line-height: 1.6;
     }
+
     .reward-card {
       background-color: #e3f2fd;
       border: 1px solid #bbdefb;
@@ -41,60 +47,129 @@
       text-align: center;
       margin: 20px 0;
     }
+
     .reward-card h2 {
       margin: 0 0 10px 0;
       font-size: 28px;
       color: #1976d2;
     }
+
     .reward-card p {
       margin: 0;
       font-size: 16px;
       color: #333;
     }
+
     .cta-button {
-      display: block;
+      display: inline-block;
       width: 200px;
       margin: 30px auto;
       padding: 15px 20px;
       background-color: #007bff;
-      color: #ffffff;
+      color: #ffffff !important;
       text-align: center;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
     }
+
+    .button-container {
+      text-align: center;
+    }
+
     .footer {
       text-align: center;
       font-size: 12px;
       color: #aaaaaa;
       padding: 20px 0;
     }
+
     .footer a {
-        color: #aaaaaa;
+      color: #aaaaaa;
+    }
+
+    .name {
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .no-style {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      padding: 0;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>intervyou.me</h1>
-    </div>
-    <div class="content">
-      <p>Halo {{name}},</p>
-      <p>Kami sedang mengadakan survei untuk meningkatkan platform kami dan ingin sekali mendapatkan masukan dari Anda. Wawasan Anda sangat berharga bagi kami seiring kami terus meningkatkan pengalaman Anda.</p>
-      <p>Kunjungi website kami di <a href="https://intervyou.me">intervyou.me</a> untuk info lebih lanjut.</p>
-    </div>
-    <div class="reward-card">
-      <p>🎁</p>
-      <h2>Dapatkan 150 Token!</h2>
-      <p>Sebagai tanda terima kasih kami, Anda akan menerima 150 token setelah menyelesaikan survei ini.</p>
-    </div>
-    <a href="https://forms.gle/DDFhg2REG5JXALSS8" class="cta-button">Ikuti Survei Sekarang</a>
-    <div class="footer">
-      <p>Hormat kami,<br>Tim intervyou.me</p>
-      <p><a href="#">Berhenti Berlangganan</a></p>
-      <p>&copy; 2025 intervyou.me</p>
-    </div>
-  </div>
+  <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td>
+        <div class="container">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td class="header">
+                <h1><a href="https://intervyou.me" class="no-style">intervyou.me</a></h1>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td class="content">
+                      <p>Halo <span class="name">{{name}}</span>,</p>
+                      <p>Kami sedang mengadakan <a href="https://forms.gle/DDFhg2REG5JXALSS8">survei</a> untuk
+                        meningkatkan platform
+                        kami dan ingin sekali mendapatkan masukan dari Anda. Wawasan Anda sangat berharga bagi kami
+                        seiring kami terus
+                        meningkatkan pengalaman Anda.</p>
+                      <p>Klik tombol di bawah atau <a href="https://forms.gle/DDFhg2REG5JXALSS8">link ini</a>.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="reward-card">
+                  <p>🎁</p>
+                  <h2>Dapatkan 150 Token!</h2>
+                  <p>Sebagai tanda terima kasih kami, Anda akan menerima 150 token setelah menyelesaikan survei ini.</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 20px 0;">
+                <a href="https://forms.gle/DDFhg2REG5JXALSS8" class="cta-button">Ikuti Survei Sekarang</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 10px 0;">
+                <p>Kunjungi website kami di <a href="https://intervyou.me">intervyou.me</a> untuk info lebih lanjut.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="footer">
+                  <p>Hormat kami,<br>Tim intervyou.me</p>
+                  <p><a href="#">Berhenti Berlangganan</a></p>
+                  <p>&copy; 2025 intervyou.me</p>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
 </body>
+
 </html>
